@@ -1,0 +1,10 @@
+Eu tive um erro com a remoção de "menu.module.ts", eu tive que remover "@ IonicPage" do menu.ts para trabalhar. Isso esta certo?
+
+
+[01:19:27] tarefa iônica-app-script: "servir"
+[01:19:27] Erro: C: \ Git \ WooIonic \ src \ páginas \ menu \ menu.ts tem um decorador @IonicPage, mas não tem um
+             Correspondente "NgModule" em C: \ Git \ WooIonic \ src \ páginas \ menu \ menu.module.ts
+Erro: C: \ Git \ WooIonic \ src \ páginas \ menu \ menu.ts tem um decorador @IonicPage, mas não tem um correspondente "NgModule" no C: \ Git \ WooIonic \ src \ páginas \ menu \ menu. Módulos
+     Em BuildError.Error (nativo)
+     Em novo BuildError (C: \ Git \ WooIonic \ node_modules \ @ionic \ app-scripts \ dist \ util \ errors.js: 16: 28)
+     Em C: \ Git \ WooIonic \ node_modules \ @ionic \ app-scripts \ dist \ preprocess.js: 18: 21

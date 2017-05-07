@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!--criando o slide da página principal com tempo para trocar o slide-->
+  <ion-card>
+    <ion-slides autoplay="3000" pager>
+      <ion-slide *ngFor="let number of [1,2,3,4]">
+        <img src="./assets/images/{{number}}.jpg"/>
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+   <!--final do slide da página principal com tempo para trocar o slide-->
+
+
+</ion-content>
