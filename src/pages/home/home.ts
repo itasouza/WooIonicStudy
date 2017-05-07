@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { NavController, Slides } from 'ionic-angular';
+
+
 import * as WC from 'npm-woocommerce-api';
 
 
@@ -12,25 +14,35 @@ export class HomePage {
 
 
   WooCommerce: any;
+  products:any[];
+  @ViewChild('productSlides') productSlides: Slides;
+ 
 
   constructor(public navCtrl: NavController) {
-  
+
     this.WooCommerce = WC({
-      url:"http://wooionic.comajudacoletiva.com.br/",
-      consumerKey:"ck_899d1c4011cab2bde1f04cd52704c248f155ecdc",
-      consumerSecret:"cs_cc90feaf8467c0a53679be89f137557cdc7acbe5",
-      wp_api: true,
-      version: 'wc/v2'
+      url: "http://samarth.cloudapp.net",
+      consumerKey: "ck_b615342c28e3aa9b0b9d384852cda85a82155197",
+      consumerSecret: "cs_d75f28e39ae9f06318608cec44fc77dd75ce6427"
     });
 
-    this.WooCommerce.getAsync('products').then((data) => {
-      console.log(data);
-    }, (err) =>{
-      console.log(err);
-    });
+    this.WooCommerce.getAsync("products").then( (data) => {
+      console.log(JSON.parse(data.body));
+      this.products = JSON.parse(data.body).products;
+    }, (err) => {
+      console.log(err)
+    })
 
+  }
 
+  ionViewDidLoad(){
+    setInterval(()=> {
 
+      if(this.productSlides.getActiveIndex() == this.productSlides.length() -1)
+        this.productSlides.slideTo(0);
+
+      this.productSlides.slideNext();
+    }, 3000)
   }
 
 }
